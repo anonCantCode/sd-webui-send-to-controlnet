@@ -8,7 +8,7 @@ class Script(scripts.Script):
 		super().__init__()
 
 	def title(self):
-		return "SendToControlNet"
+		return "@SendToControlNet"
 
 	def show(self, is_img2img):
 		return scripts.AlwaysVisible
