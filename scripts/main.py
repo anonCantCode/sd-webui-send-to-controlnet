@@ -12,12 +12,9 @@ class Script(scripts.Script):
 		return scripts.AlwaysVisible
 
 def on_after_component(component, **kwargs):
-	executed = False
-	tabId = ""
 	for extension in extensions.active():
-		if "controlnet" in extension.name and not executed:
+		if "controlnet" in extension.name:
 			currentElement = kwargs.get("elem_id")
-			executed = True
 			if currentElement == "extras_tab" and tabId == "txt2img_gallery":
 				controlNetButtonTxToTx = gr.Button(value="Send to ControlNet #0", elem_id="sendto_controlnet_button_tx_to_tx")
 				controlNetButtonTxToTx.click(fn=None, _js="(i) => {sendImageToControlNet('txt2img', 'txt2img', 0)}")
