@@ -12,6 +12,10 @@ class Script(scripts.Script):
 		return scripts.AlwaysVisible
 
 def on_after_component(component, **kwargs):
+	
+	element = kwargs.get("elem_id")
+	print(element)
+	
 	executed = False #prevent multiple buttons
 	for extension in extensions.active():
 		if "controlnet" in extension.name and not executed:
