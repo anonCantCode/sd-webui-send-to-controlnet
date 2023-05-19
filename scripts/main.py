@@ -29,4 +29,5 @@ def on_after_component(component, **kwargs):
 				tabId = ""
 			elif currentElement in ["img2img_gallery", "txt2img_gallery"]:
 				tabId = currentElement
+tabId = ""
 script_callbacks.on_after_component(on_after_component)
