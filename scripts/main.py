@@ -22,19 +22,15 @@ def on_after_component(component, **kwargs):
 				with gr.Column():
 					with gr.Row():
 						if tabId == "txt2img_gallery":
-							#controlNetUnitTx = gr.Dropdown([str(i) for i in range(controlNetMaxUnits)], label="Send to ControlNet Unit #", value="0", interactive=True, visible=(controlNetMaxUnits > 1))
-							controlNetUnitTx = 1
 							controlNetButtonTxToTx = gr.Button(value="Send to ControlNet", elem_id="sendto_controlnet_button_tx_to_tx")
-							controlNetButtonTxToTx.click(None, controlNetUnitTx, None, _js="(i) => {sendImageToControlNet('txt2img', 'txt2img', i)}")
+							controlNetButtonTxToTx.click(fn=None, _js="(i) => {sendImageToControlNet('txt2img', 'txt2img', 1)}")
 							controlNetButtonTxToIm = gr.Button(value="Send to img2img ControlNet", elem_id="sendto_controlnet_button_tx_to_im")
-							controlNetButtonTxToIm.click(None, controlNetUnitTx, None, _js="(i) => {sendImageToControlNet('txt2img', 'img2img', i)}")
+							controlNetButtonTxToIm.click(fn=None, _js="(i) => {sendImageToControlNet('txt2img', 'img2img', 1)}")
 						elif tabId == "img2img_gallery":
-							#controlNetUnitIm = gr.Dropdown([str(i) for i in range(controlNetMaxUnits)], label="Send to ControlNet Unit #", value="0", interactive=True, visible=(controlNetMaxUnits > 1))
-							controlNetUnitIm = 1
 							controlNetButtonImToIm = gr.Button(value="Send to ControlNet", elem_id="sendto_controlnet_button_im_to_im")
-							controlNetButtonImToIm.click(None, controlNetUnitIm, None, _js="(i) => {sendImageToControlNet('img2img', 'img2img', i)}")
+							controlNetButtonImToIm.click(fn=None, _js="(i) => {sendImageToControlNet('img2img', 'img2img', 1)}")
 							controlNetButtonImToTx = gr.Button(value="Send to txt2img ControlNet", elem_id="sendto_controlnet_button_im_to_tx")
-							controlNetButtonImToTx.click(None, controlNetUnitIm, None, _js="(i) => {sendImageToControlNet('img2img', 'txt2img', i)}")
+							controlNetButtonImToTx.click(fn=None, _js="(i) => {sendImageToControlNet('img2img', 'txt2img', 1)}")
 				tabId = ""
 			elif currentElement in ["img2img_gallery", "txt2img_gallery"]:
 				tabId = currentElement
