@@ -12,6 +12,7 @@ class Script(scripts.Script):
 		return scripts.AlwaysVisible
 
 def on_after_component(component, **kwargs):
+	global tabId
 	for extension in extensions.active():
 		if "controlnet" in extension.name:
 			currentElement = kwargs.get("elem_id")
