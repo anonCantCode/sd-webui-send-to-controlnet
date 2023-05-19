@@ -12,9 +12,11 @@ class Script(scripts.Script):
 		return scripts.AlwaysVisible
 
 def on_after_component(component, **kwargs):
+	executed = False #prevent multiple buttons
 	for extension in extensions.active():
-		if "controlnet" in extension.name:
+		if "controlnet" in extension.name and not executed:
 			element = kwargs.get("elem_id")
+			executed = True
 			if element == "txt2img_gallery":
 				with gr.Column():
 					controlNetButtonTxToTx = gr.Button(value="Send to ControlNet #0", elem_id="sendto_controlnet_button_tx_to_tx")
