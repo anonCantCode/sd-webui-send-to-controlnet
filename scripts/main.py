@@ -30,6 +30,6 @@ def on_after_component(component, **kwargs):
 				controlNetButtonImToTx = gr.Button(value="Send to txt2img ControlNet #0", elem_id="sendto_controlnet_button_im_to_tx")
 				controlNetButtonImToTx.click(fn=None, _js="(i) => {sendImageToControlNet('img2img', 'txt2img', 0)}")
 				tabId = ""
-			elif currentElement in ["img2img_gallery", "txt2img_gallery]:
+			elif currentElement in ["img2img_gallery", "txt2img_gallery"]:
 				tabId = currentElement
 script_callbacks.on_after_component(on_after_component)
