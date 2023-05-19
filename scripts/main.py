@@ -1,4 +1,5 @@
 from modules import extensions
+from modules import script_callbacks
 import modules.scripts as scripts
 import gradio as gr
 
