@@ -10,6 +10,6 @@ Adds buttons to send selected output images to ControlNet #0
 
 Note that further development is low priority since it already meets my usecase. Hopefully the ControlNet authors/contributers will get around to a better implementation than this hacky one.
 ## Credits
-https://github.com/Navezjt/sd-webui-photopea-embed <- Image transfer related code referenced/copied.
+https://github.com/yankooliveira/sd-webui-photopea-embed <- Image transfer related code referenced/copied.
 
 https://github.com/AlUlkesh/sd_delete_button <- Button related code referenced/copied.
