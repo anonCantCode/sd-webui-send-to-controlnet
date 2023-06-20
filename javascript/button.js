@@ -53,9 +53,13 @@ function sendImageToControlNet(from_tab, to_tab, control_units) {
 	}
 
 	// waitForWebUiUpdate(controlNetDiv).then(() => {
+	// 	const tabs = controlNetDiv.querySelectorAll("div.tab-nav > button");
 	// 	const buttons = controlNetDiv.querySelectorAll("button[aria-label='Clear']");
 	// 	for (var i = 0; i < control_units.length; i++) {
 	// 		control_unit = Number(control_units[i])
+	// 		if(tabs !== null && tabs.length > control_unit) {
+	// 			tabs[control_unit].click();
+	// 		}
 	// 		if(buttons !== null && buttons.length > control_unit) {
 	// 			buttons[control_unit].click();
 	// 		}
