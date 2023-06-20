@@ -31,7 +31,7 @@ async function setImageOnInput(imageInput, img) {
 	imageInput.dispatchEvent(event);
 }
 
-function sendImageToControlNet(from_tab, to_tab, control_unit) {
+function sendImageToControlNet(from_tab, to_tab, control_units) {
 	let gallery = txt2img_gallery;
 	let tabId = "#txt2img_script_container";
 	if (from_tab === "img2img") {
@@ -46,13 +46,19 @@ function sendImageToControlNet(from_tab, to_tab, control_unit) {
 	if (iframes.length == 0) {
 		controlNetDiv.querySelector("span.icon").click();
 	}
-	waitForWebUiUpdate(controlNetDiv).then(() => {
-		const tabs = controlNetDiv.querySelectorAll("div.tab-nav > button");
-		if(tabs !== null && tabs.length > 1) {
-			tabs[control_unit].click();
-		}
-		imageInput = controlNetDiv.querySelectorAll("input[type='file']")[0];
+	for (var i = 0; i < control_units.length; i++) {
+		control_unit = Number(control_units[i])
+		imageInput = controlNetDiv.querySelectorAll("input[type='file']")[0 + control_unit * 2];
 		setImageOnInput(imageInput, img);
 	}
-	);
+
+	// waitForWebUiUpdate(controlNetDiv).then(() => {
+	// 	const buttons = controlNetDiv.querySelectorAll("button[aria-label='Clear']");
+	// 	for (var i = 0; i < control_units.length; i++) {
+	// 		control_unit = Number(control_units[i])
+	// 		if(buttons !== null && buttons.length > control_unit) {
+	// 			buttons[control_unit].click();
+	// 		}
+	// 	}
+	// }, 1000);
 }
