@@ -21,7 +21,9 @@ def on_after_component(component, **kwargs):
 	for extension in extensions.active():
 		if "controlnet" in extension.name:
 			currentElement = kwargs.get("elem_id")
-			if currentElement == "extras_tab" and tabId in ["img2img_gallery", "txt2img_gallery"]:
+			send_extras_name_old = "extras_tab"
+			send_extras_name_new = tabId + "_send_to_extras"
+			if currentElement in (send_extras_name_old, send_extras_name_new) and tabId != "":
 				with gr.Row():
 					with gr.Column():
 						if tabId == "txt2img_gallery":
