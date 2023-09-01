@@ -1,3 +1,5 @@
+![image](https://github.com/ikamusume7/sd-webui-send-to-controlnet/blob/12d6c194b57245422988230f57a01f59bd7eee14/sample.png?raw=true)
+
 # sd-webui-send-to-controlnet
 Adds buttons to send selected output images to ControlNet #0
 
